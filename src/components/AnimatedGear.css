@@ -1,0 +1,19 @@
+.animated-gear-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  mix-blend-mode: multiply; /* Perfect for sketch art on white background */
+  pointer-events: none;
+  filter: contrast(1.1);
+}
+
+.gear-sketch-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  /* Optional subtle drop shadow for depth */
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.05));
+}

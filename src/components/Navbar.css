@@ -1,0 +1,127 @@
+/* ============================================
+   NAVBAR - ROYAL ELEGANCE
+============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 2.5rem clamp(1.5rem, 5vw, 5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar.scrolled {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  background: rgba(250, 249, 246, 0.95); /* Warm Ivory */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); /* Light drop shadow */
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.nav-logo-main {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.nav-logo-main span {
+  color: var(--gold);
+}
+
+.nav-logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.8;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-pipe {
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  opacity: 0.3;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Nav CTA */
+.nav-cta {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--border-accent);
+  padding: 0.55rem 1.2rem;
+  border-radius: 0px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}

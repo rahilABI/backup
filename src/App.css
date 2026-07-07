@@ -1,0 +1,16 @@
+/* ============================================
+   APP SHELL
+============================================ */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.main-content {
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}

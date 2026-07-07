@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;700&display=swap');
+
+/* ============================================
+   DESIGN SYSTEM — ABI NEURAL INTELLIGENCE
+   Theme: Light Mode Classic Editorial
+============================================ */
+:root {
+  /* Core Palette */
+  --bg-deep: #FAF9F6;
+  /* Warm Ivory */
+  --bg-secondary: #F5F0E6;
+  /* Champagne Cream */
+  --bg-card: rgba(255, 255, 255, 0.6);
+  --bg-card-hover: rgba(255, 255, 255, 0.9);
+
+  /* Accent Colors */
+  --gold: #856430;
+  /* Warm gold-bronze */
+  --gold-dim: rgba(133, 100, 48, 0.12);
+  --gold-glow: rgba(133, 100, 48, 0.3);
+  --cyan: #856430;
+  /* Kept for legacy compatibility */
+  --violet: #0f172a;
+
+  /* Text - No pure black */
+  --text-primary: #0f172a;
+  /* Deep Charcoal */
+  --text-secondary: #1e293b;
+  /* Slate Gray */
+  --text-muted: rgba(15, 23, 42, 0.6);
+
+  /* Borders */
+  --border: rgba(133, 100, 48, 0.15);
+  --border-accent: rgba(133, 100, 48, 0.4);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Glassmorphism */
+  --glass-blur: blur(24px);
+
+  /* Section rhythm */
+  --section-gap: clamp(100px, 12vw, 160px);
+  --container-max: 1440px;
+}
+
+/* ============================================
+   RESET
+ ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: clip;
+  position: relative;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+  border-radius: 4px;
+}
+
+/* ============================================
+   TYPOGRAPHY SCALE (Strict Editorial)
+============================================ */
+.primary-h1 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.primary-h1 i,
+.primary-h1 em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.secondary-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(24px, 3.5vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* Eyebrow Header */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(9px, 0.8vw, 10px);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-body);
+}
+
+/* ============================================
+   LAYOUT UTILITIES
+============================================ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  /* Embrace Active White Space */
+  padding: 0 clamp(2rem, 6vw, 8rem);
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 3.5rem;
+  background: var(--text-primary);
+  color: var(--bg) !important;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: 1px solid var(--text-primary);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.1);
+}
+
+.btn-primary:active {
+  background: transparent;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--text-primary);
+  transform: translateY(1px) scale(0.98);
+  box-shadow: none;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 3.5rem;
+  background: var(--gold-dim);
+  border: 1.5px solid var(--gold);
+  color: #5c431e !important; /* Deeper gold/brown for better readability */
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: rgba(133, 100, 48, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-outline:active {
+  background: var(--gold);
+  color: #fff !important;
+  border-color: var(--gold);
+  transform: translateY(1px) scale(0.98);
+}
+
+/* ============================================
+   GLASS CARD (Light Mode Edition)
+============================================ */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: 0px;
+  /* Hard architectural borders */
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   NOISE OVERLAY (subtle texture)
+============================================ */
+.noise-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  /* Moves over everything subtly */
+  pointer-events: none;
+  opacity: 0.02;
+  /* Extremely subtle for light mode */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ============================================
+   READABILITY UTILITIES
+============================================ */
+.readable-halo {
+  text-shadow: 0 0 10px rgba(250, 249, 246, 0.8),
+    0 0 20px rgba(250, 249, 246, 0.6),
+    0 0 30px rgba(250, 249, 246, 0.4);
+}
+
+/* ============================================
+   WIDE FEATURE CARDS (Z-Pattern)
+============================================ */
+.feature-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 5rem;
+}
+
+.feature-row-card {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 32px;
+  padding: 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 40px rgba(133, 100, 48, 0.03);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden; /* Keep the huge number inside the card */
+}
+
+.feature-row-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(133, 100, 48, 0.06);
+}
+
+.feature-row-card.reversed {
+  flex-direction: row-reverse;
+}
+
+.feature-card-visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  perspective: 1000px;
+}
+
+.feature-card-num {
+  font-family: var(--font-display);
+  font-size: clamp(10rem, 15vw, 15rem);
+  line-height: 0.8;
+  color: rgba(133, 100, 48, 0.03); /* Faint gold */
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+  z-index: 0;
+  user-select: none;
+}
+
+.feature-row-card.reversed .feature-card-num {
+  left: auto;
+  right: -2rem;
+}
+
+.feature-card-image-wrap {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+  border: 4px solid #ffffff;
+}
+
+.feature-card-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.feature-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.feature-card-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-title-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(133, 100, 48, 0.08);
+  border: 1px solid rgba(133, 100, 48, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.feature-title-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.feature-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.feature-card-desc {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 90%;
+  margin: 0;
+}
+
+/* ============================================
+   PREMIUM BENEFIT CARDS
+============================================ */
+.benefits-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 3.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 40px rgba(133, 100, 48, 0.06);
+  border-color: rgba(133, 100, 48, 0.2);
+}
+
+.benefit-card-icon {
+  color: var(--gold);
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(133, 100, 48, 0.08);
+  border: 1px solid rgba(133, 100, 48, 0.15);
+  margin-bottom: 2rem;
+  transition: transform 0.4s ease;
+}
+
+.benefit-card:hover .benefit-card-icon {
+  transform: scale(1.1);
+  background: rgba(133, 100, 48, 0.12);
+}
+
+.benefit-card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.benefit-card-title {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.benefit-card-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .feature-row-card {
+    padding: 2.5rem;
+  }
+  .feature-row-card,
+  .feature-row-card.reversed {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  .feature-card-desc {
+    max-width: 100%;
+  }
+  .benefits-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

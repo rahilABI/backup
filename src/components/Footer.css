@@ -1,0 +1,47 @@
+/* ============================================
+   FOOTER — Slim single bar
+============================================ */
+.footer {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--border);
+  padding: 1.1rem clamp(1.5rem, 5vw, 5rem);
+  background: var(--bg-deep);
+}
+
+.footer-inner--slim {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-logo-slim {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.footer-contact-link {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-transform: uppercase;
+  transition: opacity 0.25s ease;
+}
+.footer-contact-link:hover { opacity: 0.7; }
+
+.footer-copy {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}

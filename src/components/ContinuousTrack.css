@@ -1,0 +1,78 @@
+/* ============================================
+   CONTINUOUS TRACK - ROYAL ELEGANCE
+============================================ */
+.continuous-track-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: clamp(20px, 4vw, 60px);
+  width: 2px;
+  z-index: 50; /* Above backgrounds, below text content (which usually has relative/z-index) */
+  pointer-events: none; /* Let clicks pass through */
+}
+
+/* Base faint line */
+.track-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(133, 100, 48, 0.1); /* Faint gold */
+}
+
+/* Active filled track */
+.track-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  transform-origin: top;
+  box-shadow: 0 0 10px rgba(133, 100, 48, 0.3);
+}
+
+/* Moving dot */
+.track-dot {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.track-dot-core {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--gold);
+  z-index: 2;
+}
+
+.track-dot-halo {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: rgba(133, 100, 48, 0.2);
+  border-radius: 50%;
+  animation: trackPulse 2s ease-in-out infinite;
+}
+
+@keyframes trackPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+
+@media (max-width: 1024px) {
+  .continuous-track-container {
+    left: 15px; /* Move closer to edge on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .continuous-track-container {
+    display: none; /* Hide on mobile to save space */
+  }
+}
